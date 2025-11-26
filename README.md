@@ -21,11 +21,15 @@ The goal was to transform raw transaction data into actionable business insights
 
 ### 1. Executive Overview
 *High-level KPIs showing Revenue, Profit, and Year-over-Year growth.*
-![Executive Overview](path_to_your_screenshot_1.png)
+![Executive Overview](screenshots/executive_overview.png)
 
 ### 2. Product Performance & Decomposition Tree
 *Deep dive into product margins using Scatter Plots and AI-based Decomposition Trees.*
-![Product Analysis](path_to_your_screenshot_2.png)
+![Product Analysis](screenshots/product_performace.png)
+
+### 3. Customer Insights
+*Customer segmentation based on Order Value and Loyalty.*
+![Customer Insights](screenshots/customer_insights.png)
 
 ---
 

@@ -84,7 +84,7 @@ Clone the repository:
 
 Bash
 
-git clone [https://github.com/your-username/sales-analytics-portfolio.git](https://github.com/your-username/sales-analytics-portfolio.git)
+git clone [https://github.com/marta23-10/sales-analytics-portfolio.git](https://github.com/marta23-10/sales-analytics-portfolio.git)
 Install dependencies:
 
 Bash

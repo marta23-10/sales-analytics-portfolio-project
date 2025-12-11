@@ -1,97 +1,102 @@
-# Sales Performance & Profitability Dashboard
+<div align="center">
 
-![Power BI Banner](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+# Sales Performance & Profitability Dashboard
+### End-to-End Analytics: From Python ETL to Power BI Storytelling
+
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 
-## Executive Summary
-This end-to-end data analytics project analyzes sales data to identify key revenue drivers, optimize product portfolio, and segment customers.
+<br />
 
-The goal was to transform raw transaction data into actionable business insights using a full-stack approach: **ETL with Python**, **Data Warehousing with PostgreSQL**, and **Interactive Storytelling with Power BI**.
+**[ Explore the Notebook ](product_sales_analysis.ipynb) • [ View SQL Queries ](product_sales_queries.sql) • [ Report Bug ](issues)**
 
-**Key Achievements:**
-* Processed **200,000 sales records** ensuring data integrity.
-* Identified high-margin product categories vs volume drivers.
-* Created a dynamic dashboard allowing drill-down analysis into specific regions and timeframes.
+</div>
 
 ---
 
-## Dashboard Preview
+## Project Overview
+**Sales Performance & Profitability Dashboard** is an end-to-end data analytics project designed to identify key revenue drivers, optimize product portfolios, and segment customers effectively.
 
-### 1. Executive Overview
-*High-level KPIs showing Revenue, Profit, and Year-over-Year growth.*
-![Executive Overview](screenshots/executive_overview.png)
+The goal was to transform raw transaction data into actionable business insights using a full-stack approach. By processing over **200,000 sales records**, this project moves beyond simple reporting to uncover high-margin opportunities and regional trends.
 
-### 2. Product Performance & Decomposition Tree
-*Deep dive into product margins using Scatter Plots and AI-based Decomposition Trees.*
-![Product Analysis](screenshots/product_performace.png)
+## Repository Contents
+* **`product_sales_analysis.ipynb`**: The Python ETL pipeline (cleaning, feature engineering).
+* **`product_sales_queries.sql`**: A collection of 20+ advanced SQL queries answering specific business questions.
+* **`data/`**: Folder containing the `product_sales_dataset_final.csv`.
+* **`screenshots/`**: Dashboard images for documentation.
 
-### 3. Customer Insights
-*Customer segmentation based on Order Value and Loyalty.*
-![Customer Insights](screenshots/customer_insights.png)
+## The Data Story
+The value of this project lies in connecting raw metrics to business strategy. Through analysis, we uncovered three critical insights:
+
+* **Profitability vs. Volume:** While *Electronics* generate the highest revenue, *Accessories* provide a better profit margin (15%+), suggesting a pivot in marketing strategy.
+* **The Pareto Principle:** The top 20% of customers contribute to nearly 60% of total revenue.
+* **Regional Seasonality:** The *South Region* underperforms in Q3, a trend identified via Decomposition Tree analysis.
+
+## Visual Insights
+*We believe in interactive storytelling.* The Power BI dashboard is designed for drill-down analysis.
+
+> ![Executive Overview](screenshots/executive_overview.png)
+>
+> *Figure 1: Executive Overview showing Revenue, Profit, and YoY Growth.*
+
+> ![Product Analysis](screenshots/product_performace.png)
+>
+> *Figure 2: Product Performance using AI-based Decomposition Trees.*
+
+## Tech Stack & Methods
+
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **ETL Pipeline** | Python (Pandas) | Data cleaning, type standardization, feature engineering (`Margin`, `Year`). |
+| **Data Warehousing** | PostgreSQL | SQL Schema design and data loading via `SQLAlchemy`. |
+| **Analysis** | Advanced SQL | Window Functions (`NTILE`, `RANK`), CTEs, and complex aggregations. |
+| **Visualization** | Power BI | DAX measures, Decomposition Trees, and dynamic UX/UI. |
+
+## How to Run
+To replicate this analysis on your local machine:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/marta23-10/sales-analytics-portfolio.git](https://github.com/marta23-10/sales-analytics-portfolio.git)
+    cd sales-analytics-portfolio
+    ```
+2.  **Install dependencies:**
+    ```bash
+    pip install pandas sqlalchemy psycopg2
+    ```
+3.  **Run the ETL script:**
+    Update your database credentials in the script and run:
+    ```bash
+    python product_sales_analysis.ipynb
+    ```
+4.  **Explore SQL:**
+    Open `product_sales_queries.sql` in pgAdmin or DBeaver.
+
+## Project Roadmap
+This project follows a standard industry data pipeline:
+
+- [x] **Phase 1: Data Engineering (Python)**
+    - Ingesting raw CSV data.
+    - Validating data integrity (`Revenue = Quantity * Unit Price`).
+- [x] **Phase 2: Warehousing (PostgreSQL)**
+    - Establishing database connection.
+    - Loading cleaned data into structured SQL tables.
+- [x] **Phase 3: Deep Dive Analysis**
+    - Executing SQL queries for customer segmentation.
+    - Identifying top-performing regions.
+- [x] **Phase 4: Visualization (Power BI)**
+    - Modeling data with DAX.
+    - Designing the interactive dashboard.
+
+## Contributing
+Contributions are welcome! If you have ideas for optimizing the SQL queries or new DAX measures:
+1.  Fork the repo.
+2.  Create your feature branch.
+3.  Submit a Pull Request.
 
 ---
-
-## Tech Stack & Workflow
-
-The project follows a standard industry pipeline:
-
-### 1. Data Engineering (Python & Pandas)
-* **Data Cleaning:** Handled missing values, standardized column names, and corrected data types.
-* **Feature Engineering:** Created new metrics such as `Margin` and extracted date attributes (`Month`, `Year`) for time-series analysis.
-* **Validation:** Automated sanity checks to ensure `Revenue = Quantity * Unit Price`.
-* *Library used:* `Pandas`, `SQLAlchemy`.
-
-### 2. Data Warehousing (PostgreSQL)
-* Established a connection between Python and a local **PostgreSQL** database.
-* Designed a structured SQL schema (`sales_data` table).
-* Loaded cleaned data using the `to_sql` method for efficient storage and querying.
-
-### 3. Data Analysis (Advanced SQL)
-Executed complex queries to uncover trends before visualization. Key techniques used:
-* **Window Functions (`NTILE`, `RANK`)**: To segment top 5% customers.
-* **CTEs (Common Table Expressions)**: For readability in complex aggregations.
-* **Aggregations**: Monthly trend analysis and regional performance.
-
-### 4. Data Visualization (Power BI)
-Built an interactive 3-page report:
-* **Data Modeling:** Created DAX measures for `Total Revenue`, `AOV`, `Profit Margin %`.
-* **UX/UI Design:** Used Data Bars, dynamic titles, and consistent color themes.
-* **Advanced Visuals:** Utilized **Decomposition Trees** for root-cause analysis.
-
----
-
-## Key Insights Derived
-
-1.  **Profitability vs. Volume:** While *Electronics* generate the highest revenue, *Accessories* provide a better profit margin (15%+), suggesting a potential pivot in marketing strategy.
-2.  **Customer Loyalty:** The top 20% of customers contribute to nearly 60% of total revenue (Pareto Principle confirmed).
-3.  **Regional Trends:** The *South Region* underperforms in Q3; investigation via the Decomposition Tree revealed specific sub-categories causing the dip.
-
----
-
-## Repository Structure
-
-```text
-├── data/
-│   ├── product_sales_dataset_final.csv            # Original dataset
-├── product_sales_queries.sql  # 20+ SQL queries answering business questions
-├── product_sales_analysis.ipynb
-├── screenshots/                  # Images for this README
-└── README.md                   # Project documentation
-How to Run
-Clone the repository:
-
-Bash
-
-git clone [https://github.com/marta23-10/sales-analytics-portfolio.git](https://github.com/marta23-10/sales-analytics-portfolio.git)
-Install dependencies:
-
-Bash
-
-pip install pandas sqlalchemy psycopg2
-Run the ETL script: Update your database credentials in etl_pipeline.py and run the script to load data into PostgreSQL.
-
-Explore SQL: Open business_questions.sql in pgAdmin to run the analysis.
-
-View Dashboard: Open the .pbix file (if provided) or view screenshots.
+<div align="center">
+    <p><i>Created with Python, PostgreSQL & Power BI</i></p>
+</div>
